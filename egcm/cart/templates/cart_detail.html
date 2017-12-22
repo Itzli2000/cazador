@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+			<li class="active">Carrito de compras</li>
+		</ol>
+
+<h3 class="green-button-big-title"> 
+    Carrito de compras
+</h3>
+
+{% if cart.get_total_products == 0 %}
+<div class="empty-cart">
+    <img src="{{ STATIC_URL }}img/carrito.png" alt="">
+
+    <h3>Tu carrito está vacío</h3>
+
+    <h2>Navega por la tienda y busca tus productos favoritos</h2>
+    
+    <a href="{% url 'shop' %}" class="green-button-big">comprar ahora</a>
+</div>
+{% else %}
+<table class="table table-price">
+        <thead>
+            <th></th>
+            <th>Productos</th>
+            <th>CANTIDAD</th>
+            <th>TOTAL</th>
+        </thead>
+        <tbody>
+            {% for item in cart  %}
+                {% with  product=item.product  %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'cart:cart_remove' product.id %}" class="delete">
+                                <img src="{{ STATIC_URL }}img/delete-button.png" alt="Borrar">
+                            </a>
+                            <a href="{{ product.get_absolute_url }}" class="cart-image">
+                                <img src="{% if product.image %}{{ MEDIA_URL }}{{ product.image }}{% else %}Sin imagen{% endif %}" alt="" class="img-thumbnail">
+                            </a>
+                        </td>
+                        <td>{{ product.name }}</td>
+                        <td style="width: 30px;">
+                            <form action="" method="post" class="cart-form" id="cart-{{ product.id }}" data="{{ product.id }}">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.update }}
+                                <input type="hidden" value="{{ product.id }}" name="product_id">
+                                <input type="submit" value="Actualizar" class="green-button-update">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td>{{ item.total_price }}</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="text-right">
+        <a href="{% url "home" %}" class="green-button continue-buy">Continuar comprando</a>
+        <a href="{% url "orders:order_create" %}" class="green-button buy-button">Finalizar compra</a>
+    </p>
+
+    <div class="col-md-12">
+        <div class="center-line-text">
+            <span>TOTAL</span>
+        </div>
+    </div>
+
+    <div class="total-cart">
+            <p>SUBTOTAL <span>$ {{ cart.get_total_price }}</span></p>
+            <p>ENVÍO <span>$ {{ shipping_price }}</span></p>
+            <p>TOTAL <span>$ {{ total }}</span></p>
+    </div>
+{% endif %}
+
+<div class="row">
+
+  <h2 class="shop-title">Carnes Exóticas</h2>
+
+{% for product in related_products %}
+<div class="col-md-4">
+    <div class="shop-box-container">
+      <a href="{% url 'detail_product_one' product.category.id product.id %}">
+        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
+      </a>
+      <p class="product-name-article">{{ product.name | upper }}</p>
+      <div class="product-list related">
+            <h2>{{ product.name }}</h2>
+            <div class="cart-button-menu add-cart" data="{{ product.id }}">
+              <img src="{{ STATIC_URL}}img/carrito-blanco.png" alt="">
+              <p>$ {{ product.price|floatformat:-2 }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+
+<div class="row">
+
+  <h2 class="shop-title">Menú</h2>
+
+{% for menu in menues %}
+<div class="col-md-4">
+  <a href="{% url  'detail_menu' menu.category.id menu.id %}">
+    <div class="shop-box-container">
+      <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
+      <p class="product-name-article">{{ menu.name | upper }}</p>
+    </div>
+  </a>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row">
+
+  <h2 class="shop-title">Blog</h2>
+
+{% for post in posts %}
+<div class="col-md-4">
+    <div class="shop-box-container">
+      <a href="{% url 'view_post' post.slug %}">
+        <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
+      </a>
+      <a href="{% url 'view_post' post.slug %}" class="product-link-article">{{ post.title | upper }}</a>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row">
+
+  
+    <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
+
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script>
+
+  var handle201 = function(data, textStatus, jqXHR) {
+    // success codes have the success signature
+    // test it if you are in doubt:
+    location.reload();
+    console.log(data);
+    console.log(textStatus);
+    console.log(jqXHR);
+  };
+
+  var handleError= function(jqXHR, textStatus, errorThrown) {
+    alert('Hubo un error al agregar al carrito'); // failing codes have the error signature
+  };
+
+
+  $('.cart-form').submit(function(event) {
+    var product_id = $(this).attr('data');      
+    
+    $.ajax({
+      url: '{% url "cart:cart_add" %}',
+      type: "POST",
+      data: $('#cart-' + product_id).serialize(),
+      statusCode: {
+        201: handle201,
+        400: handleError,
+        500: handleError
+      }
+    });
+
+  });
+</script>
+{% endblock js %}

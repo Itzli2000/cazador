@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title%}El Gran Cazador México - Lista de precios{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12">
+  <ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+			<li class="active">Lista de precios</li>
+		</ol>
+
+  <h1 class="green-button-big-title">Lista de precios</h1>
+</div>
+
+<div class="list-prices">
+    {% for category in categories %}
+        <article>
+            <h2>{{ category.name | upper }}</h2>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>PRODUCTO</td>
+                        <td class="center-table-text">PRESENTACIÓN</td>
+                        <td class="price">COSTO</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        {% if product.category == category %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td class="center-table-text">{{ product.presentation.name }}</td>
+                            <td class="price">$ <span>{{ product.price }}</span></td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </article>
+    {% endfor %}
+</div>
+
+<div class="table-footer">
+    <p>NOTA: Precios sujetos a cambios sin previo aviso.</p>
+    <p>NUESTROS PRECIOS NO INCLUYEN FLETE EN PEDIDOS FORANEOS</p>
+</div>
+{% endblock %}

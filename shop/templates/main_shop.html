@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title%}El Gran Cazador México - Carnes Exóticas{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+			<li class="active">Carnes Exóticas</li>
+		</ol>
+	<h1 class="green-button-big-title">Carnes Exóticas</h1>
+
+	<h2>Categorías de los Productos</h2>
+</div>
+
+<div class="col-md-4">
+	<ul class="products-list">
+	{% for category in categories %}
+		<li><a href="{% url 'detail_product' category.id %}">{{ category.name }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class="col-md-8">
+  <h2 class="message-category">Ninguna categoría seleccionada</h2>
+</div>
+
+
+{% endblock %}

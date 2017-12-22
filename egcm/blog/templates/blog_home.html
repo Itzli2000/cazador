@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title%}El Gran Cazador México - Blog{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12">
+  <ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+			<li class="active">Blog</li>
+		</ol>
+  <h1 class="green-button-big-title">Blog</h1>
+</div>
+
+{% for post in posts %}
+<div class="col-md-4">
+  <article class="post">
+    <header>
+      <a href="{{ post.slug }}">
+        <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
+      </a>
+    </header>
+    <h2 class="entry-title">
+      <a href="{{ post.slug }}">{{ post.title | upper }}</a>
+    </h2>
+    <div class="excerpt">
+      {{ post.excerpt | safe  }}
+    </div>
+  </article>
+
+  <hr>
+</div>
+{% endfor %}
+
+<nav aria-label="Page navigation">
+  <ul class="pager">
+  {% if posts.has_previous %}
+    <li class="previous"><a href="?page={{ posts.previous_page_number }}"><span aria-hidden="true">&larr;</span> Anterior</a></li></li>
+  {% endif %}
+  
+  {% if posts.has_next %}
+    <li class="next"><a href="?page={{ posts.next_page_number }}">Siguiente <span aria-hidden="true">&rarr;</span></a></li>
+  {% endif %}
+  </ul>
+</nav>
+
+{% endblock %}

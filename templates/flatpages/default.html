@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title%}{{ flatpage.title }}{% endblock %}
+
+{% block header %}
+
+<img src="{{ STATIC_URL}}img/main.jpg" alt="Forest" class="img-responsive large-image">
+
+{% endblock %}
+
+{% block content %}
+  <h2 class="page-title">{{ flatpage.title }}</h2>
+
+  <p>
+    {{ flatpage.content }}
+  </p>
+{% endblock content %}

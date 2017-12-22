@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block title%}El Gran Cazador México - {{ post.title }}{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block container-2 %}                
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 post-header">
+      <ol class="breadcrumb">
+        <li>
+          <a href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'blog_home' %}">Blog</a>
+        </li>
+        <li class="active">
+          {{ post.title }}
+        </li>
+      </ol>
+      <h2>{{ post.title }}</h2>
+    </div>
+  </div>
+</div>
+{% endblock container-2 %}
+
+{% block container-fluid %}
+<img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="featured-image">
+{% endblock container-fluid %}
+
+{% block content %}
+<div class="col-md-12 post-body">
+  {{ post.body | safe }}
+</div>
+
+<div class="col-md-12 related-posts">
+  <p>LEER POSTS RELACIONADOS</p>
+
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="col-md-12">
+  <div class="suscription">
+    <h2>Suscríbete a nuestro Newsletter</h2>
+
+      <p>Te enviaremos un correo de confirmación</p>
+
+        <form action="//COM.us9.list-manage.com/subscribe/post?u=e4420c77e735461d91062ee22&amp;id=f638cd4b38" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+        <input type="email" value="" name="EMAIL" class="required email sus-email" id="mce-EMAIL" placeholder="Correo electr&oacute;nico">
+
+        <button type="submit">Suscribirse</button>
+        </form>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="author-box">
+    <h2>Autor</h2>
+
+    <div class="bio">
+      <img src="{{ STATIC_URL}}img/img-circle.png" alt="Laura Mejía">
+      <div class="bio-description">
+        <h3>Jose Luis</h3>
+            <p>Contenido + comunidad en El Gran Cazador Mexico. CDMX</p>
+      </div>
+       </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="center-line-text">
+    <span>Posts Relacionados</span>
+  </div>
+</div>
+
+<div class="row">
+{% for post in related_posts %}
+<div class="col-md-4">
+      <div class="shop-box-container">
+        <a href="{{ post.get_absolute_url }}">
+          <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
+        </a>
+        <p class="product-name-article"><a href="{{ post.get_absolute_url }}">
+        {{ post.title | upper }}
+      </a></p>
+      </div>
+  </div>
+{% endfor %}
+</div>
+
+<div class="row">
+
+  <h2 class="shop-title">Carnes Exóticas</h2>
+
+{% for product in products %}
+<div class="col-md-4">
+    <div class="shop-box-container">
+      <a href="{% url 'detail_product_one' product.category.id product.id %}">
+        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
+      </a>
+      <p class="product-name-article">{{ product.name | upper }}</p>
+      <div class="box-shop">
+        <a href="" class="add-cart" data="{{ product.id }}">
+          <img src="{{ STATIC_URL}}img/carrito.png" alt="Carrito">
+        </a>
+
+        <a href="{{ product.get_absolute_url }}">
+          <img src="{{ STATIC_URL}}img/descripcion.png" alt="Descripcion">
+        </a>
+    </div>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row">
+
+  <h2 class="shop-title">Menú</h2>
+
+{% for menu in menues %}
+<div class="col-md-4">
+  <a href="{% url  'detail_menu' menu.category.id menu.id %}">
+    <div class="shop-box-container">
+      <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
+      <p class="product-name-article">{{ menu.name | upper }}</p>
+    </div>
+  </a>
+</div>
+{% endfor %}
+
+</div>
+
+<!--    Twitter JS-->
+  <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+{% endblock %}
+
+
+{% block postfooter %}
+  <div class="share-wrapper">
+      <div class="share-widget-container-fixed on">
+        <ul class="feature-share">
+          <a href="https://twitter.com/intent/tweet?text={{ post.title }}%20http:/{{ post.get_absolute_url }}" class="no-redirect" title="Tweet este post">
+            <li class="twitter">
+              <div class="social-container">
+                <span class="social-icon"></span>
+                <span class="social-icon-hover"></span>
+              </div>
+            </li>
+          </a>
+          <a href="#" class="no-redirect" title="Tweet este post" id="shareBtn">
+            <li class="facebook">
+              <div class="social-container">
+                <span class="social-icon"></span>
+                <span class="social-icon-hover"></span>
+              </div>
+            </li>
+          </a>
+          <a href="https://plus.google.com/share?url=http:/{{ post.get_absolute_url}}" class="no-redirect" title="Tweet este post" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+            <li class="gplus">
+              <div class="social-container">
+                <span class="social-icon"></span>
+                <span class="social-icon-hover"></span>
+              </div>
+            </li>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http:/{{ post.get_absolute_url }}&title={{ post.title }}" class="no-redirect" title="Tweet este post" target="_blank">
+            <li class="linkedin">
+              <div class="social-container">
+                <span class="social-icon"></span>
+                <span class="social-icon-hover"></span>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+</div>
+{% endblock postfooter %}

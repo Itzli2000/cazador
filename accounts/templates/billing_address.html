@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12">
+  <ol class="breadcrumb">
+		<li><a href="{% url 'home' %}">Inicio</a></li>
+		<li class="active">Pagos</li>
+  </ol>		  
+	<h1 class="green-button-big-title">Dirección de Facturación</h1>
+</div>
+
+<div class="col-md-12">
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
+</div>
+
+<div class="col-md-4">
+  <ul class="list-profile">
+    <li><img src="{{ STATIC_URL }}img/editar-perfil.png" alt=""><a href="{% url 'profile' %}">Editar perfil</a></li>
+    <!--
+    <li><img src="{{ STATIC_URL }}img/preferencia.png" alt=""><a href="#">Preferencias</a></li>
+    -->
+    <li><img src="{{ STATIC_URL }}img/contrasena.png" alt=""><a href="{% url 'change_pass' %}">Contraseña</a></li>
+    <li><img src="{{ STATIC_URL }}img/pedidos.png" alt=""><a href="{% url 'orders' %}">Pedidos</a></li>
+    <li><img src="{{ STATIC_URL }}img/pago.png" alt=""><a href="{% url 'billing' %}">Pagos</a></li>
+    <li><img src="{{ STATIC_URL }}img/envio.png" alt=""><a href="{% url 'shipping' %}">Envío</a></li>
+  </ul>
+</div>
+
+<div class="col-md-8">
+
+  <form action="" method="POST" class="form-horizontal profile-form" id="form-profile">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="line1">Línea 1</label>
+        {{ billing_address_form.line1 }}
+      </div>
+      <div class="form-group">
+        <label for="line2">Línea 2</label>
+        {{ billing_address_form.line2 }}
+      </div>
+      <div class="form-group">
+        <label for="city">Ciudad</label>
+        {{ billing_address_form.city }}
+      </div>
+      <div class="form-group">
+        <label for="state">Estado</label>
+        {{ billing_address_form.state }}
+      </div>
+      <div class="form-group">
+        <label for="country">País</label>
+        {{ billing_address_form.country }}
+      </div>
+      <div class="form-group">
+        <label for="zip_code">Código postal</label>
+        {{ billing_address_form.zip_code }}
+      </div>
+      <div class="form-group">
+        <label for="phone_number">Teléfono</label>
+        {{ billing_address_form.phone_number }}
+      </div>
+
+      <a class="button green-button-big margin-bottom-left">
+        Confirmar
+      </a>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}            
+<script>
+  $( ".button" ).click(function() {
+    $( "#form-profile" ).submit();
+  });
+</script>
+{% endblock js %}

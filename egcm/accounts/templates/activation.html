@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    {% if already_active %}
+        <h2>Ya ha activado su cuenta</h2>
+    {% else %}
+        <h2>¡Felicidades! Ha activado su cuenta.</h2>
+    {% endif %}
+
+    <p>Incie sesión <a href="{% url 'login' %}">aquí</a></p>
+</div>
+{% endblock %}

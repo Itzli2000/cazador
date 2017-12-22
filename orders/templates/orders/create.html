@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'cart:cart_detail' %}">Carrito de compras</a></li>
+			<li class="active">Pagar</li>
+</ol>
+
+<h2>Pagar</h2>
+
+<div class="col-md-4">
+    <div class="order-info orders">
+    <h3>Resumen de tu orden</h3>
+    <p>Subtotal: $ {{ cart.get_total_price }}</p>
+    <p>Envío: $ {{ shipping_price }}</p>
+    <p>Total: $ {{ total }}</p>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="shopping-address orders">
+    <h3>Tu información de envío</h3>
+    <ul>
+      <li><span>Línea 1:</span> {{ shipping_address.line1 }}</li>
+      <li><span>Línea 2:</span> {{ shipping_address.line2 }}</li>
+      <li><span>Ciudad:</span> {{ shipping_address.city }}</li>
+      <li><span>Estado:</span> {{ shipping_address.state }}</li>
+      <li><span>Código Postal:</span> {{ shipping_address.zip_code }}</li>
+      <li><span>Teléfono: </span> {{ shipping_address.phone_number }}</li>
+    </ul>
+  </div>
+
+  <div class="billing-address orders">
+    <h3>Tu información de facturación</h3>
+    <ul>
+      <li><span>Línea 1:</span> {{ billing_address.line1 }}</li>
+      <li><span>Línea 2:</span> {{ billing_address.line2 }}</li>
+      <li><span>Ciudad:</span> {{ billing_address.city }}</li>
+      <li><span>Estado:</span> {{ billing_address.state }}</li>
+      <li><span>Código Postal:</span> {{ billing_address.zip_code }}</li>
+      <li><span>Teléfono: </span> {{ billing_address.phone_number }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="paypal-info orders">
+    <h3>Paga con PayPal</h3>
+    {{ form.render }}
+  </div>
+
+  <div class="oxxo-info orders">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="payment_type" value="oxxo">
+    <h3>O puedes pagar en el OXXO</h3>
+
+    <img src="{{ STATIC_URL }}/img/oxxo.png" alt="">
+
+    <input type="submit" value="Pagar en Oxxo" class="green-button-purchase">
+    </form>
+  </div>
+
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script type="text/javascript">
+  Conekta.setPublishableKey('key_KJysdbf6PotS2ut2');
+      $(function () {
+        $("#payment-form").submit(function(event) {
+          var $form = $(this);
+          $form.find("button").prop("disabled", true); //Prevents double click
+          Conekta.token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+          return false;
+        });
+      });
+      var conektaSuccessResponseHandler = function(token) {
+        var $form = $("#payment-form");
+        $form.append($("<input type='hidden' name='conektaTokenId'>").val(token.id)); //Add hidden input with token_id
+        console.log(token.id);
+        $form.get(0).submit();
+      };
+      var conektaErrorResponseHandler = function(response) {
+        var $form = $("#payment-form");
+        console.log(response.message_to_purchaser);
+        $form.find(".card-errors").text(response.message_to_purchaser); //Display the error
+        $form.find("button").prop("disabled", false);
+      };
+</script>         
+{% endblock js %}

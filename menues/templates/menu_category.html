@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title%}El Gran Cazador México - Menu{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12">
+  <ol class="breadcrumb">
+			<li><a href="{% url 'home' %}">Inicio</a></li>
+      <li><a href="{% url 'menu' %}">Menú</a></li>
+			<li class="active">{{ category.name }}</li>
+		</ol>
+  <h1 class="green-button-big-title">Menú</h1>
+</div>
+
+<div class="col-md-4">
+  <ul class="products-list">
+  {% for category in categories %}
+    <li>
+      <a href="{% url 'menu_category' category.id %}">{{ category.name }}</a>
+      {% if category.id == actual_category %}
+        <ul class="subcategory">
+          {% for product in products  %}
+            <li><a href="{{ product.get_absolute_url }}" class="subcategory">{{ product.name | upper }} </a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+
+<div class="col-md-8">
+{% for product in  products %}
+  <div class="col-md-6 img-restaurant">
+    <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
+    <div class="box-menu">
+      <div class="box-name-article">
+        <a href="{{ product.get_absolute_url }}">{{ product.name | upper }}</a>
+      </div>
+      <div class="box-price-article">
+        $ {{ product.price }}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+<div class="col-md-12">
+	<div class="center-line-text">
+    <span>Productos Relacionados</span>
+  </div>
+</div>
+
+<div  class="row">
+{% for product in related_products %}
+<div class="col-md-4">
+    <div class="shop-box-container">
+      <a href="{% url 'detail_product_one' product.category.id product.id %}">
+        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
+      </a>
+      <p class="product-name-article">{{ product.name | upper }}</p>
+      <p class="product-price-article">$ {{ product.price }}</p>
+      <div class="box-shop">
+        <a href="" class="add-cart" data="{{ product.id }}">
+          <img src="{{ STATIC_URL}}img/carrito.png" alt="Carrito">
+        </a>
+
+        <a href="{{ product.get_absolute_url }}">
+          <img src="{{ STATIC_URL}}img/descripcion.png" alt="Descripcion">
+        </a>
+    </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+
+<div class="row">
+
+  <h2 class="shop-title">Menú</h2>
+
+{% for menu in menues %}
+<div class="col-md-4">
+  <a href="{% url  'detail_menu' menu.category.id menu.id %}">
+    <div class="shop-box-container">
+      <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
+      <p class="product-name-article">{{ menu.name | upper }}</p>
+    </div>
+  </a>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row">
+
+  <h2 class="shop-title">Blog</h2>
+
+{% for post in posts %}
+<div class="col-md-4">
+    <div class="shop-box-container">
+      <a href="{% url 'view_post' post.slug %}">
+        <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
+      </a>
+      <a href="{% url 'view_post' post.slug %}" class="product-link-article">{{ post.title | upper }}</a>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+<div class="row">
+
+  
+    <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
+
+</div>
+
+{% endblock %}

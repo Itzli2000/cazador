@@ -1,0 +1,26 @@
+Collecting xhtml2pdf
+  Downloading xhtml2pdf-0.0.6.zip (120kB)
+Collecting html5lib (from xhtml2pdf)
+  Downloading html5lib-1.0.1-py2.py3-none-any.whl (117kB)
+Collecting pyPdf2 (from xhtml2pdf)
+  Downloading PyPDF2-1.26.0.tar.gz (77kB)
+Collecting Pillow (from xhtml2pdf)
+  Using cached Pillow-4.3.0-cp35-cp35m-win32.whl
+Collecting reportlab>=2.2 (from xhtml2pdf)
+  Downloading reportlab-3.4.0-cp35-cp35m-win32.whl (2.1MB)
+Collecting webencodings (from html5lib->xhtml2pdf)
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl
+Requirement already satisfied: six>=1.9 in c:\users\itzli\documents\virtualenvs\cazador\lib\site-packages (from html5lib->xhtml2pdf)
+Collecting olefile (from Pillow->xhtml2pdf)
+Requirement already satisfied: pip>=1.4.1 in c:\users\itzli\documents\virtualenvs\cazador\lib\site-packages (from reportlab>=2.2->xhtml2pdf)
+Requirement already satisfied: setuptools>=2.2 in c:\users\itzli\documents\virtualenvs\cazador\lib\site-packages (from reportlab>=2.2->xhtml2pdf)
+Building wheels for collected packages: xhtml2pdf, pyPdf2
+  Running setup.py bdist_wheel for xhtml2pdf: started
+  Running setup.py bdist_wheel for xhtml2pdf: finished with status 'done'
+  Stored in directory: C:\Users\Itzli\AppData\Local\pip\Cache\wheels\ec\eb\db\13a2be9c15f492c65086709a69042924ebfb7aa4c4cc7284f1
+  Running setup.py bdist_wheel for pyPdf2: started
+  Running setup.py bdist_wheel for pyPdf2: finished with status 'done'
+  Stored in directory: C:\Users\Itzli\AppData\Local\pip\Cache\wheels\86\6a\6a\1ce004a5996894d33d93e1fb1b67c30973dc945cc5875a1dd0
+Successfully built xhtml2pdf pyPdf2
+Installing collected packages: webencodings, html5lib, pyPdf2, olefile, Pillow, reportlab, xhtml2pdf
+Successfully installed Pillow-4.3.0 html5lib-1.0.1 olefile-0.44 pyPdf2-1.26.0 reportlab-3.4.0 webencodings-0.5.1 xhtml2pdf-0.0.6

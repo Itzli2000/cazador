@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+      <li class="active">Contacto</li>
+    </ol>
+    <h1 class="green-button-big-title">Contacto</h1>
+  </div>
+
+  <div class="col-md-4">
+    
+  </div>
+
+  <div class="col-md-8">
+    <form action="{% url 'contact' %}" method="post" class="form-horizontal profile-form" id="contact-form">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Nombre</label>
+        <div class="col-sm-10">
+          {{ form.name }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
+        <div class="col-sm-10">
+          {{ form.email }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Teléfono</label>
+        <div class="col-sm-10">
+          {{ form.phone }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">Mensaje</label>
+        <div class="col-sm-10">
+          {{ form.message }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          <a class="button green-button-big">
+            Enviar
+          </a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+{% endblock content %}
+
+{% block js %}            
+<script>
+  $( ".button" ).click(function() {
+    $( "#contact-form" ).submit();
+  });
+</script>
+{% endblock js %}

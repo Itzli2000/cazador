@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="col-md-12">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'home' %}">Inicio</a></li>
+      <li class="active">Órdenes</li>
+    </ol>
+    <h1 class="green-button-big-title">Órdenes</h1>
+  </div>
+
+  <div class="col-md-4">
+    <ul class="list-profile">
+      <li><img src="{{ STATIC_URL }}img/editar-perfil.png" alt=""><a href="{% url 'profile' %}">Editar perfil</a></li>
+      <!--
+      <li><img src="{{ STATIC_URL }}img/preferencia.png" alt=""><a href="#">Preferencias</a></li>
+      -->
+      <li><img src="{{ STATIC_URL }}img/contrasena.png" alt=""><a href="{% url 'change_pass' %}">Contraseña</a></li>
+      <li><img src="{{ STATIC_URL }}img/pedidos.png" alt=""><a href="{% url 'orders' %}">Pedidos</a></li>
+      <li><img src="{{ STATIC_URL }}img/pago.png" alt=""><a href="{% url 'billing' %}">Pagos</a></li>
+      <li><img src="{{ STATIC_URL }}img/envio.png" alt=""><a href="{% url 'shipping' %}">Envío</a></li>
+    </ul>
+  </div>
+
+  <div class="col-md-8">
+    {% for order in orders  %}
+      <div class="order-info">
+        <table class="table">
+          <thead>
+            <tr>
+              <td></td>
+              <td>Productos</td>
+              <td>Costo</td>
+              <td>Cantidad</td>
+              <td>Subtotal</td>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="2">Referencia: {{ order.reference_code }}</td>
+              <td>Estatus: {{ order.status }}</td>
+              <td colspan="2">Total: ${{ order.get_total_with_shipping }}</td>
+            </tr>
+          </tfoot>
+          <tbody>
+            {% for item in items  %}
+              {% if item.order.id == order.id %}
+                <tr>
+                  <td><img src="{{ MEDIA_URL }}{{ item.product.image }}" alt="" class="image-table"></td>
+                  <td>{{ item.product.name }}</td>
+                  <td>${{ item.price }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>${{ item.get_cost }}</td>
+            </tr>
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
