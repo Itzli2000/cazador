@@ -183,7 +183,8 @@ h2 a {
 
 .box-shop img {
   display: inline;
-  margin: 12px 5px 30px 20px;
+  margin: 10px;
+  width: 30px;
 }
 
 .center-line-text {
