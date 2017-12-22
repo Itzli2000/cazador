@@ -1,20 +1,32 @@
+{% load static %}
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title%} {% endblock %}</title>
-         
-         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title%} {% endblock %}</title>
 
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="{% static 'icon/favicon.ico' %}" type="icon/x-icon"/>
+    <link rel="apple-touch-icon" href="{% static 'icon/apple-touch-icon.png' %}"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icon/apple-touch-icon-57x57.png' %} " />
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icon/apple-touch-icon-72x72.png' %} " />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icon/apple-touch-icon-76x76.png' %} " />
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icon/apple-touch-icon-114x114.png' %} " />
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icon/apple-touch-icon-120x120.png' %} " />
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icon/apple-touch-icon-144x144.png' %} " />
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icon/apple-touch-icon-152x152.png' %} " />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icon/apple-touch-icon-180x180.png' %} " />
 
-         <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css">
-         <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-        <header class="fijo-header">            
+    <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <header class="fijo-header">            
         <!-- logo Moble -->
         <div class="button-menu icon-menu">
             <figure class="left">
@@ -41,84 +53,84 @@
                                     <li><a href="{% url 'contact' %}">Contacto</a></li>
                                     <li><a href="{% url 'about' %}">Nosotros</a></li>
                                     {% if request.user.is_authenticated %}
-                                        <li><a href="{% url 'cart:cart_detail' %}">
-                                            <img src="{{ STATIC_URL}}img/carrito.png" alt="" class="main-menu-cart">
-                                            </a>
-                                        </li>
-                                        <li><a href="{% url 'profile' %}">Perfil</a></li>
-                                    {% else %}
-                                        <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-                                    {% endif %}
+                                    <li><a href="{% url 'cart:cart_detail' %}">
+                                        <img src="{{ STATIC_URL}}img/carrito.png" alt="" class="main-menu-cart">
+                                    </a>
+                                </li>
+                                <li><a href="{% url 'profile' %}">Perfil</a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                                {% endif %}
 
-                                </ul>
-                            </nav>
-                        </div>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</header>
+
+<div id="page" class="site">
+    <div class="block-header">
+    </div>
+    <header id="masthead" class="site-header" role="banner">
+        {% block header %}
+        {% endblock %}
     </header>
-        
-        <div id="page" class="site">
-            <div class="block-header">
-            </div>
-            <header id="masthead" class="site-header" role="banner">
-                {% block header %}
-                {% endblock %}
-            </header>
 
-            {% block container-2 %}                
-            {% endblock container-2 %}
+    {% block container-2 %}                
+    {% endblock container-2 %}
 
-            {% block container-fluid %}
-            {% endblock container-fluid %}
+    {% block container-fluid %}
+    {% endblock container-fluid %}
 
-            <div class="container">
-                <div class="row">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
+    <div class="container">
+        <div class="row">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 
-            {% block prefooter %}
-            {% endblock prefooter %}
-        
-            <footer id="colophon" class="site-footer" role="contentinfo">
-                <div class="wrap padding10">
-                    <ul class="share-buttons">
-                        <li><a href="#" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="{{ STATIC_URL }}img/social_facebook.png"></a></li>
-                        <li><a href="#" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_linkedin.png"></a></li>
-                        <li><a href="#" target="_blank" title="Share on Instragram"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_instagram.png"></a></li>
-                    </ul>
+    {% block prefooter %}
+    {% endblock prefooter %}
 
-                    <form role="search" method="get" id="searchform" action="">
-                        <input type="text" value="" name="s" id="s" placeholder="BUSCA EN EL BLOG">
-                        <input type="submit" id="searchsubmit" value="" class="btn-search">
-                    </form>
+    <footer id="colophon" class="site-footer" role="contentinfo">
+        <div class="wrap padding10">
+            <ul class="share-buttons">
+                <li><a href="#" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="{{ STATIC_URL }}img/social_facebook.png"></a></li>
+                <li><a href="#" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_linkedin.png"></a></li>
+                <li><a href="#" target="_blank" title="Share on Instragram"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_instagram.png"></a></li>
+            </ul>
 
-                    <nav class="btn-serv-foot">
-                        <ul>
-                            <li><a href="{% url 'shop' %}">Carnes Exóticas</a></li>
-                            <li><a href="{% url 'price_list' %}">Lista de Precios</a></li>
-                            <li><a href="{% url 'menu' %}">Menú</a></li>
-                            <li><a href="{% url 'about' %}">Nosotros</a></li>
-                            <li><a href="{% url 'blog_home' %}">Blog</a></li>
-                            <li><a href="{% url 'contact' %}">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </footer><!-- #colophon -->
+            <form role="search" method="get" id="searchform" action="">
+                <input type="text" value="" name="s" id="s" placeholder="BUSCA EN EL BLOG">
+                <input type="submit" id="searchsubmit" value="" class="btn-search">
+            </form>
 
-        </div><!-- #page -->
+            <nav class="btn-serv-foot">
+                <ul>
+                    <li><a href="{% url 'shop' %}">Carnes Exóticas</a></li>
+                    <li><a href="{% url 'price_list' %}">Lista de Precios</a></li>
+                    <li><a href="{% url 'menu' %}">Menú</a></li>
+                    <li><a href="{% url 'about' %}">Nosotros</a></li>
+                    <li><a href="{% url 'blog_home' %}">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer><!-- #colophon -->
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
-        <script src="{{ STATIC_URL }}js/script.js"></script>
-        {% block js %}            
-        {% endblock js %}
+</div><!-- #page -->
 
-        {% block postfooter %}
-        {% endblock postfooter %}
-    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+<script src="{{ STATIC_URL }}js/script.js"></script>
+{% block js %}            
+{% endblock js %}
+
+{% block postfooter %}
+{% endblock postfooter %}
+</body>
 </html>
