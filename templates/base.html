@@ -26,16 +26,38 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}mobile/css/menu_sideslide.css" rel="stylesheet" type="text/css">
     <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
     <header class="fijo-header">            
         <!-- logo Moble -->
-        <div class="button-menu icon-menu">
+        <div class="button-menu icon-menu" id="open-button">
             <figure class="left">
                 <a href="{% url 'home' %}" rel="home"><img src="{{ STATIC_URL }}img/logo.jpg" alt="El Gran Cazador México" height="36"></a>
             </figure>
+        </div>
+        <div class="menu-wrap">
+            <nav class="menuslide">
+                <div class="icon-list">
+                    <ul>
+                        <a href="{% url 'shop' %}"><span>Carnes Exóticas</span></a>
+                        <a href="{% url 'price_list' %}"><span>Lista de Precios</span></a>
+                        <a href="{% url 'menu' %}"><span>Menú</span></a>
+                        <a href="{% url 'blog_home' %}"><span>Blog</span></a>
+                        <a href="{% url 'contact' %}"><span>Contacto</span></a>
+                        <a href="{% url 'about' %}"><span>Nosotros</span></a>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'cart:cart_detail' %}"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+                        <a href="{% url 'profile' %}"><span>Perfil</span></a>
+                        {% else %}
+                        <a href="{% url 'login' %}"><span>Iniciar Sesión</span></a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <button class="close-button" id="close-button">Close Menu</button>
         </div>
         <!-- logo Desktop -->
         <div class="container">
@@ -130,6 +152,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
+<script src="{{ STATIC_URL }}mobile/js/classie.js"></script>
+<script src="{{ STATIC_URL }}mobile/js/main.js"></script>
 <script src="{{ STATIC_URL }}js/script.js"></script>
 {% block js %}            
 {% endblock js %}
