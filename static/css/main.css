@@ -1148,9 +1148,25 @@ ul.share-buttons{
 }
 
 ul.share-buttons li{
-  display: inline;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 16px;
+  background-color: #FFF;
+  border-radius: 100%;
 }
+
+ul.share-buttons li a {
+  display: inline-block;
+}
+
+ul.share-buttons li a i {
+  font-size: 30px;
+  color: rgb(92, 162, 53);
+}
+
 
 ul.share-buttons li:last-child{
   margin-right: 0;

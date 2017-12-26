@@ -123,16 +123,6 @@
 
     <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="wrap padding10">
-            <ul class="share-buttons">
-                <li><a href="#" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="{{ STATIC_URL }}img/social_facebook.png"></a></li>
-                <li><a href="#" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_linkedin.png"></a></li>
-                <li><a href="#" target="_blank" title="Share on Instragram"><img alt="Share on LinkedIn" src="{{ STATIC_URL }}img/social_instagram.png"></a></li>
-            </ul>
-
-            <form role="search" method="get" id="searchform" action="">
-                <input type="text" value="" name="s" id="s" placeholder="BUSCA EN EL BLOG">
-                <input type="submit" id="searchsubmit" value="" class="btn-search">
-            </form>
 
             <nav class="btn-serv-foot">
                 <ul>
@@ -144,6 +134,17 @@
                     <li><a href="{% url 'contact' %}">Contacto</a></li>
                 </ul>
             </nav>
+
+            <ul class="share-buttons">
+                <li><a href="#" title="Share on Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="#" target="_blank" title="Share on Instragram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+
+            <form role="search" method="get" id="searchform" action="">
+                <input type="text" value="" name="s" id="s" placeholder="BUSCA EN EL BLOG">
+                <input type="submit" id="searchsubmit" value="" class="btn-search">
+            </form>
         </div>
     </footer><!-- #colophon -->
 

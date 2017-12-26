@@ -621,11 +621,18 @@ footer {
 	text-align: center;
 	vertical-align: center;
 	width: 100%;
-        padding-bottom: 40px;
+	padding-top: 40px;
 }
 .btn-serv-foot ul li {
 	list-style: none;
-        display: inline;
+	display: inline;
+	color: #333333;
+}
+.btn-serv-foot ul li a{
+	color: #333333;
+}
+.btn-serv-foot ul li:after {
+	content: '|';
 }
 .btn-serv-foot a {
 	color: #fff;
