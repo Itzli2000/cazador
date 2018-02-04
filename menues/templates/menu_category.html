@@ -40,6 +40,7 @@
         <a href="{{ product.get_absolute_url }}">{{ product.name | upper }}</a>
       </div>
       <div class="box-price-article">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         $ {{ product.price }}
       </div>
     </div>
@@ -47,7 +48,7 @@
 {% endfor %}
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12" style="padding-top: 30px;">
 	<div class="center-line-text">
     <span>Productos Relacionados</span>
   </div>
