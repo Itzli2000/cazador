@@ -39,7 +39,7 @@
       <div class="box-name-article">
         <a href="{{ product.get_absolute_url }}">{{ product.name | upper }}</a>
       </div>
-      <div class="box-price-article add-cart" data="{{ product.id }}">
+      <div class="box-price-article add-cart" data="{{ product.id }}" instance ="{{ product.instance}}">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;
         $ {{ product.price }}
       </div>

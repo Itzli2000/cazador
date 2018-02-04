@@ -27,14 +27,14 @@ def contact_form(request):
                 'name': name
             }
 
-            msg = get_template('mail/mail_form.html').render(
-                Context(ctx)
-            )
+            msg = get_template('mail/mail_form.html').render(ctx)
             mail = EmailMessage("Mensaje de EGCM",
                                 msg,
-                                to=['laura@yaxha.mx'],
+                                to=['itzli2000@msn.com'],
+                                # to=['laura@yaxha.mx'],
                                 from_email=email)
             mail.content_subtype = 'html'
+            # mail.conect()
             mail.send()
 
             is_mail_sent = True
