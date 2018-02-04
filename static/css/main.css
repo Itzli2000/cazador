@@ -142,7 +142,9 @@ a:hover {
   text-align: center;
   width: 90%;
 }
-
+#shopContainer {
+  padding: 0;
+}
 .shop-box-container {
   margin: 0 auto;
   width: fit-content;
@@ -171,22 +173,7 @@ a:hover {
 
 .img-restaurant {
   margin-bottom: 25px;
-}
-
-.img-restaurant:nth-child(3) {
-  width: 100%;
-}
-
-.img-restaurant:nth-child(3) img {
-  width: 100%;
-}
-
-.img-restaurant:nth-child(3) .box-menu .box-name-article {
-  margin-left: -42px;
-}
-
-.img-restaurant:nth-child(3) .box-menu .box-price-article {
-  margin-right: -36px;
+  padding: 0;
 }
 
 .box-shop img {
@@ -425,14 +412,16 @@ h2.header-price {
 
 .box-menu {
   margin: 10px auto;
-  width: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .box-name-article {
   border-radius: 10px;
   border: 1px solid white;
   cursor: pointer;
-  float: left;
   max-width: 30%;
 }
 
@@ -445,7 +434,10 @@ h2.header-price {
   border-radius: 10px;
   border: 1px solid rgb(92, 162, 53);
   color: rgb(92, 162, 53);
-  float: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 3px;
 }
 
@@ -1265,6 +1257,9 @@ form  p {
   .shop-box-container img.img-thumbnail {
     max-height: 100%;
   }
+  .img-restaurant {
+    padding: 0 10px;
+  }
 }
 
 @media screen and (min-width: 781px) {
@@ -1535,7 +1530,7 @@ form  p {
     font-size: 2.6em;
     padding: 5px;
     text-align: right;
-  padding: 25px 20px 0 20px;
+    padding: 25px 20px 0 20px;
   }
   .menu {
     display: none;

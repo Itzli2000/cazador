@@ -108,6 +108,7 @@
 
 /* Menu */
 .menu-wrap {
+	display: block;
 	position: absolute;
 	z-index: 1001;
 	width: 250px;
@@ -211,4 +212,11 @@
 	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
+}
+
+@media screen and (min-width: 770px) {
+	.menu-wrap {
+		display: none;
+	}
+	
 }
