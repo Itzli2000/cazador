@@ -14,7 +14,7 @@ from django.shortcuts import resolve_url
 from annoying.decorators import render_to
 
 
-from .models import User, Profile, ShippingAddress, BillingAddress
+from .models import *
 from .forms import (
     RegistrationForm,
     ProfileForm,

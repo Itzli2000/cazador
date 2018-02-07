@@ -54,7 +54,13 @@ h2 a {
   width: 100%;
 }
 
+.img-container {
+  width: 100%;
+  padding: 0;
+}
+
 .img-thumbnail {
+  width: 320px;
   padding: 0;
 }
 
@@ -879,11 +885,13 @@ hr {
 }
 
 .profile-image-description {
-  display: inline-block;
+  display: inline-grid;
   margin-left: 50px;
   margin-top: 11px;
 }
-
+.profile-image-description input#id_image {
+  width: 100%;
+}
 .bio {
   padding-top: 1.6em;
 }
@@ -1235,6 +1243,7 @@ form  p {
 .order-info {
   width: 100%;
   background-color: rgb(237, 239, 240);
+  overflow-x: auto;
 }
 
 .image-table {
