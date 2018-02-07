@@ -30,8 +30,7 @@ def contact_form(request):
             msg = get_template('mail/mail_form.html').render(ctx)
             mail = EmailMessage("Mensaje de EGCM",
                                 msg,
-                                to=['itzli2000@msn.com'],
-                                # to=['laura@yaxha.mx'],
+                                to=['laura@yaxha.mx'],
                                 from_email=email)
             mail.content_subtype = 'html'
             # mail.conect()

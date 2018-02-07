@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block header %}
 {% endblock %}
@@ -60,9 +61,9 @@
       <input type="hidden" name="payment_type" value="oxxo">
     <h3>O puedes pagar en el OXXO</h3>
 
-    <img src="{{ STATIC_URL }}/img/oxxo.png" alt="">
+    <img src="{% static 'img/oxxo.png' %}" alt="">
 
-    <input type="submit" value="Pagar en Oxxo" class="green-button-purchase">
+    <input id="" type="submit" value="Pagar en Oxxo" class="green-button-purchase">
     </form>
   </div>
 
