@@ -1,4 +1,12 @@
 /*============New styles=============*/
+div[class^="col-"] {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
 h1 {
   font-size: 1.4em;
 }
@@ -60,7 +68,8 @@ h2 a {
 }
 
 .img-thumbnail {
-  width: 320px;
+  width: 100%;
+  height: auto;
   padding: 0;
 }
 
@@ -664,6 +673,10 @@ table td.price span {
 
 .product-list {
   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 .related {
@@ -1263,6 +1276,14 @@ form  p {
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  div[class^="col-"] {
+    padding-right: initial;
+    padding-left: initial;
+  }
   .shop-box-container img.img-thumbnail {
     max-height: 100%;
   }

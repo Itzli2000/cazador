@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title%}{{ flatpage.title }}{% endblock %}
+
+{% block header %}
+
+<img src="{{ STATIC_URL}}img/main.jpg" alt="Forest" class="img-responsive large-image">
+
+{% endblock %}
+
+{% block content %}
+<br>
+  <h2 class="page-title">¡Gracias por registrarte en El Gran Cazador México!</h2>
+<br>
+  <p>
+    Gracias por registrarte en El Gran Cazador México, pronto te llegará un
+    mensaje de correo electrónico con una liga única para activar tu cuenta.
+  </p>
+  <p>
+      Si no llegas a ver el mensaje en tu bandeja de entrada, checa la bandeja
+      de SPAM.
+  </p>
+{% endblock content %}
