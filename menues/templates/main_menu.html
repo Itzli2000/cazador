@@ -7,20 +7,25 @@
 
 <div class="col-md-12">
   <ol class="breadcrumb">
-			<li><a href="{% url 'home' %}">Inicio</a></li>
-			<li class="active">Menú</li>
-		</ol>
-
-  <h1 class="green-button-big-title">Menú</h1>
+   <li><a href="{% url 'home' %}">Inicio</a></li>
+   <li class="active">Menú</li>
+   <li>
+     <form role="search" method="get" id="searchformMain" action="">
+      <input type="text" value="" name="s" id="s" placeholder="BUSCADOR">
+      <input type="submit" id="searchsubmit" value="" class="btn-search">
+    </form>
+  </li>
+</ol>
+<h1 class="green-button-big-title">Menú</h1>
 </div>
 
 <div class="col-md-4">
   <ul class="products-list">
-  {% for category in categories %}
+    {% for category in categories %}
     <li>
       <a href="{% url 'menu_category' category.id %}">{{ category.name }}</a>
     </li>
-  {% endfor %}
+    {% endfor %}
   </ul>
 </div>
 

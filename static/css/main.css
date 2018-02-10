@@ -7,6 +7,9 @@ div[class^="col-"] {
   padding-left: 0;
   padding-right: 0;
 }
+textarea:focus, input:focus{
+  outline: none;
+}
 h1 {
   font-size: 1.4em;
 }
@@ -257,6 +260,7 @@ h2.header-price {
 
 .list-profile li {
   margin-bottom: 15px;
+  margin-left: 10px;
 }
 
 .list-profile li a {
@@ -356,9 +360,10 @@ h2.header-price {
   background-color: rgb(92, 162, 53);
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1em;
-  padding: 10px;
   text-align: center;
   margin-bottom: 25px;
   width: 200px;
@@ -406,7 +411,7 @@ h2.header-price {
   clear: both;
   margin-top: 50px;
   padding-top: 20px;
-  margin-left: 15px;
+  margin: 0 8px;
 }
 
 .list-prices h2 {
@@ -556,7 +561,8 @@ table td.price span {
 }
 
 .post-body {
-  padding: 3em;
+  padding: 3em !important;
+  text-align: justify;
 }
 
 .post-body p {
@@ -1218,6 +1224,8 @@ form  p {
 
 .profile-form {
   margin-bottom: 30px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .big-button {
@@ -1262,7 +1270,53 @@ form  p {
 .image-table {
   height: 20%;
 }
-
+/*Styles for search form on breadcrumbs*/
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.breadcrumb>li:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+.breadcrumb>li+li:last-of-type:before {
+  content: '';
+  align-self: flex-end;
+}
+form#searchformMain {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(92, 162, 53);
+}
+form#searchformMain input#s::placeholder {
+  color: rgb(92, 162, 53);
+}
+form#searchformMain input#s {
+  width: 150px;
+  text-align: center;
+  margin: 0 6px;
+  border-radius: 10px;
+  border: 1px solid rgb(92, 162, 53);
+}
+form#searchformMain input#searchsubmit {
+  width: 25px;
+  height: 25px;
+  border-radius: 6px;
+  background: rgb(92, 162, 53) url(../img/search_b.png) no-repeat;
+  background-position-x: 4px;
+  background-position-y: 4px;
+  background-size: 16px 16px;
+}
 /*==============MEDIA==================*/
 
 @media screen and (min-width: 1024px) {
@@ -1289,6 +1343,9 @@ form  p {
   }
   .img-restaurant {
     padding: 0 10px;
+  }
+  .profile-form {
+    width: 100%;
   }
 }
 

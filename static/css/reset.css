@@ -632,6 +632,7 @@ footer {
 }
 .btn-serv-foot ul li a{
 	color: #333333;
+	padding: 0 5px;
 }
 .btn-serv-foot ul li:after {
 	content: '|';
