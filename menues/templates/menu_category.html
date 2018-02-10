@@ -7,32 +7,38 @@
 
 <div class="col-md-12">
   <ol class="breadcrumb">
-			<li><a href="{% url 'home' %}">Inicio</a></li>
-      <li><a href="{% url 'menu' %}">Menú</a></li>
-			<li class="active">{{ category.name }}</li>
-		</ol>
-  <h1 class="green-button-big-title">Menú</h1>
+   <li><a href="{% url 'home' %}">Inicio</a></li>
+   <li><a href="{% url 'menu' %}">Menú</a></li>
+   <li class="active">{{ category.name }}</li>
+   <li>
+     <form role="search" method="get" id="searchformMain" action="">
+      <input type="text" value="" name="s" id="s" placeholder="BUSCADOR">
+      <input type="submit" id="searchsubmit" value="" class="btn-search">
+    </form>
+  </li>
+</ol>
+<h1 class="green-button-big-title">Menú</h1>
 </div>
 
 <div class="col-md-4">
   <ul class="products-list">
-  {% for category in categories %}
+    {% for category in categories %}
     <li>
       <a href="{% url 'menu_category' category.id %}">{{ category.name }}</a>
       {% if category.id == actual_category %}
-        <ul class="subcategory">
-          {% for product in products  %}
-            <li><a href="{{ product.get_absolute_url }}" class="subcategory">{{ product.name | upper }} </a></li>
-          {% endfor %}
-        </ul>
+      <ul class="subcategory">
+        {% for product in products  %}
+        <li><a href="{{ product.get_absolute_url }}" class="subcategory">{{ product.name | upper }} </a></li>
+        {% endfor %}
+      </ul>
       {% endif %}
     </li>
-  {% endfor %}
+    {% endfor %}
   </ul>
 </div>
 
 <div class="col-md-8">
-{% for product in  products %}
+  {% for product in  products %}
   <div class="col-md-6 img-restaurant">
     <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
     <div class="box-menu">
@@ -45,7 +51,7 @@
       </div>
     </div>
   </div>
-{% endfor %}
+  {% endfor %}
 </div>
 
 <div class="col-md-12">
@@ -55,8 +61,8 @@
 </div>
 
 <div  class="row">
-{% for product in related_products %}
-<div id="shopContainer" class="col-md-4">
+  {% for product in related_products %}
+  <div id="shopContainer" class="col-md-4">
     <div class="shop-box-container">
       <a href="{% url 'detail_product_one' product.category.id product.id %}">
         <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
@@ -71,10 +77,10 @@
         <a href="{{ product.get_absolute_url }}">
           <img src="{{ STATIC_URL}}img/descripcion.png" alt="Descripcion">
         </a>
+      </div>
     </div>
-    </div>
-</div>
-{% endfor %}
+  </div>
+  {% endfor %}
 </div>
 
 
@@ -82,16 +88,16 @@
 
   <h2 class="shop-title">Menú</h2>
 
-{% for menu in menues %}
-<div class="col-md-4">
-  <a href="{% url  'detail_menu' menu.category.id menu.id %}">
-    <div class="shop-box-container">
-      <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
-      <p class="product-name-article">{{ menu.name | upper }}</p>
-    </div>
-  </a>
-</div>
-{% endfor %}
+  {% for menu in menues %}
+  <div class="col-md-4">
+    <a href="{% url  'detail_menu' menu.category.id menu.id %}">
+      <div class="shop-box-container">
+        <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
+        <p class="product-name-article">{{ menu.name | upper }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
 
 </div>
 
@@ -99,23 +105,23 @@
 
   <h2 class="shop-title">Blog</h2>
 
-{% for post in posts %}
-<div class="col-md-4">
+  {% for post in posts %}
+  <div class="col-md-4">
     <div class="shop-box-container">
       <a href="{% url 'view_post' post.slug %}">
         <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
       </a>
       <a href="{% url 'view_post' post.slug %}" class="product-link-article">{{ post.title | upper }}</a>
     </div>
-</div>
-{% endfor %}
+  </div>
+  {% endfor %}
 
 </div>
 
 <div class="row">
 
   
-    <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
+  <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
 
 </div>
 
@@ -130,9 +136,9 @@
       console.log(data);
       console.log(textStatus);
       console.log(jqXHR);
-  };
+    };
 
-  var handleError= function(jqXHR, textStatus, errorThrown) {
+    var handleError= function(jqXHR, textStatus, errorThrown) {
     alert('Hubo un error al agregar al carrito'); // failing codes have the error signature
   };
 
@@ -145,10 +151,10 @@
       url: '{% url "cart:cart_add" %}',
       type: "POST",
       data: {
-          "product_id": product_id,
-          csrfmiddlewaretoken: '{{ csrf_token }}',
-          'quantity': '1',
-          'update': 'False'
+        "product_id": product_id,
+        csrfmiddlewaretoken: '{{ csrf_token }}',
+        'quantity': '1',
+        'update': 'False'
       },
       statusCode: {
         201: handle201,
