@@ -73,6 +73,14 @@ h2 a {
   z-index: 2;
   background-color: rgba(0,0,0,0.3);
 }
+#wrapmenu {
+  max-width: 1025px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*Information on 'carnes exoticas' banner*/
 .info-text {
   color: #FFF;
@@ -1410,11 +1418,6 @@ form#searchformMain input#searchsubmit {
 /*==============MEDIA==================*/
 
 @media screen and (min-width: 1024px) {
-  .wrap {
-    max-width: 1025px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-  }
   .header-info {
     width: 1000px;
     margin: 0 auto;
@@ -1598,7 +1601,6 @@ form#searchformMain input#searchsubmit {
   }
   .menu {
     float: right;
-    padding-top: 25px;
   }
   .flex-container {
     margin: 0 auto;
@@ -1685,7 +1687,7 @@ form#searchformMain input#searchsubmit {
     cursor: pointer;
     display: block;
     font-size: 2.6em;
-    padding: 25px 20px 0 20px;
+    padding: 10px 20px;
     text-align: right;
   }
   .menu {
@@ -1759,9 +1761,8 @@ form#searchformMain input#searchsubmit {
     cursor: pointer;
     display: block;
     font-size: 2.6em;
-    padding: 5px;
     text-align: right;
-    padding: 25px 20px 0 20px;
+    padding: 10px 20px;
   }
   .menu {
     display: none;
