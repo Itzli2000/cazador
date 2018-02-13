@@ -61,11 +61,80 @@ h2 a {
   color: rgb(92, 162, 53);
   text-align: center;
 }
-
+.site-header {
+  position: relative;
+}
+.bck-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0,0,0,0.3);
+}
+.info-text {
+  color: #FFF;
+  position: absolute;
+  height: 100%;
+  right: 10%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 3;
+}
+.info-text .litle-title {
+  font-size: 20px;
+  padding-top: 10%;
+}
+.info-text .large-title {
+  font-size: 30px;
+}
+.info-text .btn-title {
+  width: 100px;
+  margin-top: 15px;
+  text-transform: lowercase;
+  text-align: center;
+  font-size: 25px;
+  border: 10px;
+  background: #f4d31e;
+  color: #FFF;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.info-text .btn-title:hover {
+  background: #FFE039;
+}
 .block-header {
   background-color: rgb(92, 162, 53);
   height: 60px;
   width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-info {
+  margin-right: 10px;
+}
+.header-info i {
+  color: #FFF;
+}
+.header-info a,
+.header-info a:active {
+  color: #f2fb00;
+  transition: all 0.2s ease-in-out;
 }
 
 .img-container {
@@ -1323,7 +1392,16 @@ form#searchformMain input#searchsubmit {
 /*==============MEDIA==================*/
 
 @media screen and (min-width: 1024px) {
-
+  .wrap {
+    max-width: 1025px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  .header-info {
+    width: 1025px;
+    margin: 0 auto;
+    text-align: right;
+  }
   .large-image-post img {
     height: 100%;
     margin: 0 auto 0;
@@ -1401,11 +1479,6 @@ form#searchformMain input#searchsubmit {
   .post-container > article {
     padding: 0 26px;
     width: 33.33%;
-  }
-
-  .logo-big {
-    padding-top: 20px;
-
   }
 
   .logo-big img {
