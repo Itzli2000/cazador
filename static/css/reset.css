@@ -621,7 +621,6 @@ footer {
 	text-align: center;
 	vertical-align: center;
 	width: 100%;
-	padding-top: 40px;
 }
 .btn-serv-foot ul li {
 	list-style: none;
@@ -629,11 +628,12 @@ footer {
 	color: #333333;
 }
 .btn-serv-foot ul li a{
-	color: #333333;
+	color: #fff;
 	padding: 0 5px;
 }
 .btn-serv-foot ul li:after {
 	content: '|';
+	color: #FFF;
 }
 .btn-serv-foot a {
 	color: #fff;

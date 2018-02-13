@@ -1409,6 +1409,66 @@ form#searchformMain input#searchsubmit {
   background-position-y: 4px;
   background-size: 16px 16px;
 }
+.address {
+  color: #f4d31f;
+  font-size: 15px;
+}
+/*Privacy styles*/
+#showme {
+  padding-top: 20px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+#showme:hover {
+  color: #f4d31f;
+}
+#privacy {
+  display: none;
+  position: fixed;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow-y: scroll;
+  border-radius: 30px;
+}
+#privacy h1 {
+  text-align: center;
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+#privacy .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#privacy hr {
+  border-top: 1px solid #000 !important;
+  width: 90%;
+  margin: 0 auto;
+}
+#privacy p {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 40px;
+  text-align: justify;
+  font-size: 15px;
+}
+#privacy p span {
+  font-weight: bold;
+}
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 350px;
+}
+
 /*==============MEDIA==================*/
 
 @media screen and (min-width: 1024px) {
@@ -1444,12 +1504,12 @@ form#searchformMain input#searchsubmit {
   }
 
   ul.share-buttons li{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
   }
 
   ul.share-buttons li a i {
-    font-size: 30px;
+    font-size: 20px;
   }
   .container {
     padding-left: 15px;
