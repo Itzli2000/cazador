@@ -1415,7 +1415,7 @@ form#searchformMain input#searchsubmit {
 
 @media screen and (min-width: 1024px) {
   .header-info {
-    width: 1000px;
+    width: 900px;
     margin: 0 auto;
     text-align: right;
   }
