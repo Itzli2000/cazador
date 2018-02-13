@@ -142,41 +142,4 @@
 {% endblock %}
 
 {% block js %}
-<script>
-
-  var handle201 = function(data, textStatus, jqXHR) {
-      alert('Se ha agregado al carrito'); // success codes have the success signature
-      // test it if you are in doubt:
-      console.log(data);
-      console.log(textStatus);
-      console.log(jqXHR);
-  };
-
-  var handleError= function(jqXHR, textStatus, errorThrown) {
-    alert('Hubo un error al agregar al carrito'); // failing codes have the error signature
-  };
-
-
-  $('.add-cart').click(function(event) {  
-    event.preventDefault();
-    var product_id = $(this).attr('data');
-    
-    $.ajax({
-      url: '{% url "cart:cart_add" %}',
-      type: "POST",
-      data: {
-          "product_id": product_id,
-          csrfmiddlewaretoken: '{{ csrf_token }}',
-          'quantity': '1',
-          'update': 'False'
-      },
-      statusCode: {
-        201: handle201,
-        400: handleError,
-        500: handleError
-      }
-    });
-
-  });
-</script>
 {% endblock js %}
