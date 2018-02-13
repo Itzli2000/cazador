@@ -371,8 +371,9 @@ h2.header-price {
 }
 
 .cart-button {
-  background-color: rgb(92, 162, 53);
-  color: white;
+  border: 1px solid rgb(92, 162, 53);
+  border-radius: 25px;
+  color: rgb(92, 162, 53);
   cursor: pointer;
   display: block;
   height: 60px;
@@ -381,6 +382,9 @@ h2.header-price {
   padding: 10px;
   text-align: center;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .table-cart {
@@ -489,20 +493,12 @@ h2.header-price {
   float: right;
 }
 
-.cart-button img {
-  float: left;
-  margin-left: 20px;
-  margin-top: 5px;
-  width: 32px;
-}
-
 .login-url, .login-url:hover {
   color: rgb(92, 162, 53);
 }
 
-.cart-button p {
-  margin-top: 5px;
-  font-size: 15px;
+.cart-button i {
+  font-size: 17px;
 }
 
 .tabs {

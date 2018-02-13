@@ -51,7 +51,7 @@
       <div class="col-md-6">
           <div class="product-list">
               <h2>{{ product.name }}</h2>
-              <div class="cart-button-menu add-cart" data="{{ product.id }}">
+              <i class="fa fa-shopping-cart  add-cart" aria-hidden="true"  data="{{ product.id }}"></i>
                 <img src="{{ STATIC_URL}}img/carrito-blanco.png" alt="">
                 <p>$ {{ product.price|floatformat:-2 }}</p>
               </div>
@@ -96,7 +96,7 @@
       </a>
       <div class="product-list related">
           <h2>{{ product.name }}</h2>
-          <div class="cart-button-menu add-cart" data="{{ product.id }}">
+          <i class="fa fa-shopping-cart  add-cart" aria-hidden="true"  data="{{ product.id }}"></i>
             <img src="{{ STATIC_URL}}img/carrito-blanco.png" alt="">
             <p>$ {{ product.price|floatformat:-2 }}</p>
           </div>
