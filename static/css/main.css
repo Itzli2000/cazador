@@ -593,7 +593,10 @@ table td.price span {
   display: inline-block;
   width: auto;
 }
-
+#post-Container {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
 .post p, .post-body p {
   font-size: 1em; 
 }
@@ -904,6 +907,7 @@ hr {
   font-size: 1.1em;
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: #6495ed;
 }
 
 .related-posts li {
@@ -923,10 +927,11 @@ hr {
 }
 
 .suscription {
-  background-color: rgb(92, 162, 53);;
+  background-color: #4e535f;
   margin: 2em auto 2em auto;
   padding: 45px 0px 45px 0px;
   text-align: center;
+  max-width: 800px;
 }
 
 .suscription h2 {
@@ -954,10 +959,6 @@ hr {
   margin: 1em auto 1em auto;
   text-align: center;
   width: 50%;
-}
-
-.author-box {
-  margin: 2em auto 10em auto;
 }
 
 .author-box h2  {
@@ -1099,7 +1100,6 @@ hr {
 .share-wrapper {
   background: #ffffff;
   padding: 0;
-  position: absolute;
   top: 40px;
   width: 100%;
   z-index: 101;
@@ -1111,11 +1111,9 @@ hr {
 
 .share-wrapper .share-widget-container-fixed {
   background: #ffffff;
-  border-top: 1px solid #e4e4e4;
   bottom: 0;
   height: 68px;
   padding: 15px 0 12px 30px;
-  position: fixed;
   transition: all .2s;
   width: 100%;
   z-index: 101;

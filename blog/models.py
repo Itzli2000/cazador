@@ -38,6 +38,7 @@ class Post(models.Model):
                               upload_to=get_upload_path,
                               blank=True,
                               null=True)
+    author = HTMLField(verbose_name='Autor', blank=True, unique=True)
     excerpt = HTMLField(verbose_name='Texto corto', blank=True)
     body = HTMLField(verbose_name='Entrada')
     posted = models.DateField(db_index=True, auto_now_add=True)
