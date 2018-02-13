@@ -73,31 +73,42 @@ h2 a {
   z-index: 2;
   background-color: rgba(0,0,0,0.3);
 }
+/*Information on 'carnes exoticas' banner*/
 .info-text {
   color: #FFF;
   position: absolute;
   height: 100%;
-  right: 10%;
+  right: 5%;
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   z-index: 3;
 }
 .info-text .litle-title {
-  font-size: 20px;
-  padding-top: 10%;
+  margin: initial;
+  padding: initial;
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
 }
 .info-text .large-title {
-  font-size: 30px;
+  margin: initial;
+  padding: initial;
+  padding-bottom: 10px;
+  font-size: 15px;
 }
 .info-text .btn-title {
+  margin: initial;
+  padding: initial;
+  padding: 0;
+  margin: 0;
   width: 100px;
-  margin-top: 15px;
+  height: auto;
   text-transform: lowercase;
   text-align: center;
-  font-size: 25px;
+  font-size: 15px;
   border: 10px;
   background: #f4d31e;
   color: #FFF;
@@ -126,13 +137,20 @@ h2 a {
   align-items: center;
 }
 .header-info {
-  margin-right: 10px;
+  display: inline-flex;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-around;
 }
 .header-info i {
   color: #FFF;
+  font-size: 10px;
 }
 .header-info a,
 .header-info a:active {
+  font-size: 10px;
   color: #f2fb00;
   transition: all 0.2s ease-in-out;
 }
@@ -1242,8 +1260,8 @@ ul.share-buttons{
 }
 
 ul.share-buttons li{
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -1257,7 +1275,7 @@ ul.share-buttons li a {
 }
 
 ul.share-buttons li a i {
-  font-size: 30px;
+  font-size: 20px;
   color: rgb(92, 162, 53);
 }
 
@@ -1398,9 +1416,13 @@ form#searchformMain input#searchsubmit {
     margin-bottom: 10px;
   }
   .header-info {
-    width: 1025px;
+    width: 1000px;
     margin: 0 auto;
     text-align: right;
+  }
+  .header-info i,
+  .header-info a {
+    font-size: 19px !important;
   }
   .large-image-post img {
     height: 100%;
@@ -1411,6 +1433,27 @@ form#searchformMain input#searchsubmit {
 }
 
 @media screen and (min-width: 768px) {
+  /*Header info section*/
+  .header-info {
+    justify-content: flex-end;
+  }
+  .header-info i,
+  .header-info a {
+    font-size: 15px;
+  }
+  /* SHARE BUTTONS */
+  ul.share-buttons{
+    margin-top: 20px;
+  }
+
+  ul.share-buttons li{
+    width: 50px;
+    height: 50px;
+  }
+
+  ul.share-buttons li a i {
+    font-size: 30px;
+  }
   .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -1418,6 +1461,31 @@ form#searchformMain input#searchsubmit {
   div[class^="col-"] {
     padding-right: initial;
     padding-left: initial;
+  }
+  /*Information on 'carnes exoticas' banner*/
+  .info-text {
+    color: #FFF;
+    position: absolute;
+    height: auto;
+    right: 10%;
+    top: 30%;
+    justify-content: flex-start;
+  }
+  .info-text .litle-title {
+    font-size: 20px;
+    padding: 5% 0;
+  }
+  .info-text .large-title {
+    font-size: 25px;
+  }
+  .info-text .btn-title {
+    width: 100px;
+    height: 34.5px;
+    margin-top: 15px;
+    text-transform: lowercase;
+    text-align: center;
+    font-size: 25px;
+    border: 10px;
   }
   .shop-box-container img.img-thumbnail {
     max-height: 100%;
