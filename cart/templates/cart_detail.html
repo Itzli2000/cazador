@@ -15,7 +15,7 @@
 
 {% if cart.get_total_products == 0 %}
 <div class="empty-cart">
-    <img src="{{ STATIC_URL }}img/carrito.png" alt="">
+    
 
     <h3>Tu carrito está vacío</h3>
 
@@ -92,7 +92,6 @@
       <div class="product-list related">
             <h2>{{ product.name }}</h2>
             <i class="fa fa-shopping-cart  add-cart" aria-hidden="true"  data="{{ product.id }}"></i>
-              <img src="{{ STATIC_URL}}img/carrito-blanco.png" alt="">
               <p>$ {{ product.price|floatformat:-2 }}</p>
             </div>
         </div>
