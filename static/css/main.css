@@ -50,7 +50,7 @@ h2 a {
 }
 
 .breadcrumb a, .breadcrumb a:hover {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .breadcrumb > .active {
@@ -58,7 +58,7 @@ h2 a {
 }
 
 .page-title {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   text-align: center;
 }
 .site-header {
@@ -133,7 +133,7 @@ h2 a {
   background: #FFE039; 
 }
 .block-header {
-  background-color: rgb(92, 162, 53);
+  background-color: #7fab4d;
   height: 60px;
   width: 100%;
   display: -webkit-flex;
@@ -219,7 +219,7 @@ a:hover {
 }
 
 .product-name-article {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 25px;
   text-align: center;
   width: 100%;
@@ -227,7 +227,7 @@ a:hover {
 }
 
 .product-name-article a, .product-name-article a:hover {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .form-horizontal .control-label {
@@ -235,7 +235,7 @@ a:hover {
 }
 
 .product-link-article {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 0.9em;
   text-align: center;
   display: block;
@@ -253,7 +253,7 @@ a:hover {
 }
 
 .product-price-article {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   margin-top: -20px;
   text-align: center;
   width: 90%;
@@ -267,7 +267,7 @@ a:hover {
 }
 
 .shop-box-container a:hover{
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .shop-box-container img.img-thumbnail {
@@ -320,7 +320,7 @@ a:hover {
 }
 
 h2.header-price {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 1.1em;
   margin: 15px 0px;
   text-align: center;
@@ -346,7 +346,7 @@ h2.header-price {
 }
 
 .product-info h3 {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 1.1em;
   text-align: center;
   margin-top: 3px;
@@ -362,7 +362,7 @@ h2.header-price {
 }
 
 .list-profile li a {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .list-profile li img {
@@ -371,9 +371,9 @@ h2.header-price {
 }
 
 .cart-button {
-  border: 1px solid rgb(92, 162, 53);
+  border: 1px solid #7fab4d;
   border-radius: 25px;
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   cursor: pointer;
   display: block;
   height: 60px;
@@ -432,7 +432,7 @@ h2.header-price {
 }
 
 .green-button, .green-button-update, .green-button-purchase  {
-  background-color: rgb(92, 162, 53);
+  background-color: #7fab4d;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -459,13 +459,12 @@ h2.header-price {
 }
 
 .green-button-big, .green-button-big-title {
-  background-color: rgb(92, 162, 53);
-  color: #fff;
+  color: #7fab4d;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
   margin-bottom: 25px;
   width: 200px;
@@ -494,7 +493,7 @@ h2.header-price {
 }
 
 .login-url, .login-url:hover {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .cart-button i {
@@ -509,7 +508,7 @@ h2.header-price {
 }
 
 .list-prices h2 {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 1.2em;
   text-align: center;
   margin-bottom: 20px;
@@ -540,14 +539,14 @@ h2.header-price {
 }
 
 .box-name-article a {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-size: 13px;
 }
 
 .box-price-article {
   border-radius: 10px;
-  border: 1px solid rgb(92, 162, 53);
-  color: rgb(92, 162, 53);
+  border: 1px solid #7fab4d;
+  color: #7fab4d;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -602,11 +601,11 @@ table td.price span {
 }
 
 .post p > a {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .post p > a:hover {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .post header a img {
@@ -653,7 +652,7 @@ table td.price span {
 }
 
 .post-header h2 {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   text-align: center;
 }
 
@@ -667,7 +666,7 @@ table td.price span {
 }
 
 .related-posts {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   padding-left: 3em;
 }
 
@@ -777,9 +776,9 @@ table td.price span {
 .product-list {
   margin-top: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .related {
@@ -795,7 +794,7 @@ table td.price span {
 }
 
 .cart-button-menu {
-  background-color: rgb(92, 162, 53);
+  background-color: #7fab4d;
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -848,7 +847,7 @@ table td.price span {
 }
 
 .post header h2 a{
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .featured-image {
@@ -879,7 +878,7 @@ hr {
 }
 
 .entry-title a, .entry-title a:hover, .entry-title a:visited {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
   font-weight: bold;
   font-size: 0.9em;
 }
@@ -890,7 +889,7 @@ hr {
 }
 
 .entry-content p a:hover {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 .post-navigation {
@@ -1069,7 +1068,7 @@ hr {
 }
 
 #searchform input[type="text"] {
-  background-color: rgb(92, 162, 53);;
+  background-color: #7fab4d;;
   padding: 5px 20px;
   border: 1px rgb(83, 104, 128) solid;
   border-radius: 5px;
@@ -1283,7 +1282,7 @@ ul.share-buttons li a {
 
 ul.share-buttons li a i {
   font-size: 20px;
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 
 
@@ -1312,7 +1311,7 @@ ul.share-buttons .sr-only {
 }
 
 a.publisher-anchor-color {
- color: rgb(92, 162, 53)
+ color: #7fab4d
 }
 
 form  p {
@@ -1326,7 +1325,7 @@ form  p {
 }
 
 .big-button {
-  background: rgb(92, 162, 53);
+  background: #7fab4d;
   border-radius: 26px;
   border: none;
   padding-left: 4px;
@@ -1336,7 +1335,7 @@ form  p {
 }
 
 .big-button:hover {
-  background: rgb(92, 162, 53);
+  background: #7fab4d;
   color: #fff;
   outline: none;
 }
@@ -1344,7 +1343,7 @@ form  p {
 .big-button:hover .glyphicon,
 .big-button:active,
 .big-button:focus{
-  background: rgb(92, 162, 53);
+  background: #7fab4d;
   outline: none;
 }
 
@@ -1393,23 +1392,23 @@ form#searchformMain {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 form#searchformMain input#s::placeholder {
-  color: rgb(92, 162, 53);
+  color: #7fab4d;
 }
 form#searchformMain input#s {
   width: 150px;
   text-align: center;
   margin: 0 6px;
   border-radius: 10px;
-  border: 1px solid rgb(92, 162, 53);
+  border: 1px solid #7fab4d;
 }
 form#searchformMain input#searchsubmit {
   width: 25px;
   height: 25px;
   border-radius: 6px;
-  background: rgb(92, 162, 53) url(../img/search_b.png) no-repeat;
+  background: #7fab4d url(../img/search_b.png) no-repeat;
   background-position-x: 4px;
   background-position-y: 4px;
   background-size: 16px 16px;
@@ -1800,7 +1799,7 @@ form#searchformMain input#searchsubmit {
 		padding-top: 0px;
 	}
 	.button-menu {
-    color: rgb(92, 162, 53);
+    color: #7fab4d;
     cursor: pointer;
     display: block;
     font-size: 2.6em;
@@ -1874,7 +1873,7 @@ form#searchformMain input#searchsubmit {
 		padding-top: 0px;
 	}
 	.button-menu {
-    color: rgb(92, 162, 53);
+    color: #7fab4d;
     cursor: pointer;
     display: block;
     font-size: 2.6em;
@@ -1948,11 +1947,11 @@ form#searchformMain input#searchsubmit {
   }
 
   .entry-title a, .entry-title a:hover, .entry-title a:visited {
-    color: rgb(92, 162, 53);
+    color: #7fab4d;
   }
 
   .entry-title-post {
-    color: rgb(92, 162, 53);
+    color: #7fab4d;
     font-size: 1.6em;
     text-align: center;
   }

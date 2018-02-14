@@ -86,6 +86,7 @@ urlpatterns = [
     url(r'^payment/', include('payment.urls', namespace='payment')),
 
     url(r'^admin/', admin.site.urls),
+    url(r'^reporte/$', shop_views.ListaPrecios.as_view(), name='report'),
 ]
 
 if settings.DEBUG:
