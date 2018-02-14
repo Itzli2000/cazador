@@ -9,7 +9,7 @@
 }
 [class^="icon-"],
 [class*=" icon-"] {
-	font-family: 'menu-icon';
+	font-family: sans-serif;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
