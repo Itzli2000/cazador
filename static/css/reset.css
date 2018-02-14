@@ -482,17 +482,39 @@ p {
 	list-style: none;
 }
 .menu ul li a {
-	border-right: 1px solid #666;
 	color: #526e7a;
 	display: block;
 	font-weight: 300;
-	padding: 10px 10px;
+	padding: 10px 5px;
 	text-decoration: none;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	-ms-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+}
+.menu ul li a:after {
+	font-family: FontAwesome;
+	content: '\f111';
+	padding-left: 10px;
+	font-size: 8px;
+	line-height: 15px;
+}
+.menu ul li:last-child a:after {
+	content: ' ';
 }
 .menu ul li a:hover {
 	background-color: rgb(92, 162, 53);;
@@ -632,10 +654,6 @@ footer {
 .btn-serv-foot ul li a{
 	color: #fff;
 	padding: 0 5px;
-}
-.btn-serv-foot ul li:after {
-	content: '|';
-	color: #FFF;
 }
 .btn-serv-foot a {
 	color: #fff;
