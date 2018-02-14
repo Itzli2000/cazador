@@ -21,7 +21,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 .icon-menu:before {
-	content: "\e600";
+	font-family: FontAwesome;
+	content: "\f0c9";
+	font-size: 25px;
 }
 @font-face {
 	font-family: 'Neutra-Book';

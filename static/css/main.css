@@ -130,7 +130,7 @@ h2 a {
   transition: all 0.3s ease-in-out;
 }
 .info-text .btn-title:hover {
-  background: #FFE039;
+  background: #FFE039; 
 }
 .block-header {
   background-color: rgb(92, 162, 53);
@@ -1413,60 +1413,114 @@ form#searchformMain input#searchsubmit {
   color: #f4d31f;
   font-size: 15px;
 }
-/*Privacy styles*/
-#showme {
-  padding-top: 20px;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-#showme:hover {
-  color: #f4d31f;
-}
-#privacy {
-  display: none;
-  position: fixed;
-  width: 90%;
-  max-width: 800px;
-  height: 400px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  overflow-y: scroll;
-  border-radius: 30px;
-}
-#privacy h1 {
-  text-align: center;
-  margin: 10px 0;
-  margin-bottom: 20px;
-}
-#privacy .close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-#privacy hr {
-  border-top: 1px solid #000 !important;
-  width: 90%;
-  margin: 0 auto;
-}
-#privacy p {
-  width: 85%;
-  margin: 0 auto;
-  margin-top: 40px;
-  text-align: justify;
-  font-size: 15px;
-}
-#privacy p span {
-  font-weight: bold;
-}
 .footerContent {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   min-height: 350px;
+}
+/*Modal alert styles*/
+#promoBtn {
+  padding-top: 20px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+#promoBtn:hover {
+  color: #f4d31f;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-header h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-content img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
+}
+.modal-content .btn-title {
+  margin: initial;
+  padding: initial;
+  padding: 0;
+  margin: 0;
+  width: 150px;
+  height: auto;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 15px;
+  border: 10px;
+  background: #f4d31e;
+  color: #FFF;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.modal-content .btn-title:hover {
+  background: #FFE039; 
+}
+/* The Close Button */
+.closemodal,
+.closepromo {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closemodal:hover,
+.closemodal:focus,
+.closepromo:hover,
+.closepromo:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+#privacy p {
+  font-size: 14px;
+  text-align: justify;
+}
+#privacy p span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.modal-backdrop {
+  z-index: 0;
+  display: none;
 }
 
 /*==============MEDIA==================*/
@@ -1552,6 +1606,10 @@ form#searchformMain input#searchsubmit {
   }
   .profile-form {
     width: 100%;
+  }
+  /*Privacy text styles*/
+  #privacy p {
+    font-size: 18px;
   }
 }
 
