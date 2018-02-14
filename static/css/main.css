@@ -1526,6 +1526,17 @@ form#searchformMain input#searchsubmit {
   z-index: 0;
   display: none;
 }
+/*Download excel price list*/
+.btn.btn-list {
+  width: inherit;
+  padding: 0 10px;
+  background-color: #7fab4d;
+  display: inline-flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  color: #FFF;
+}
 
 /*==============MEDIA==================*/
 

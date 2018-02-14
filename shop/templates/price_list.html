@@ -12,10 +12,10 @@
  </ol>
 
  <h1 class="green-button-big-title">Lista de precios</h1>
- <a href="{% url 'report' %}" class="btn btn-primary btn-lg active" role="button">Descargar reporte</a>
 </div>
 
 <div class="list-prices">
+ <a href="{% url 'report' %}" class="btn btn-list" role="button">Descargar listado</a>
     {% for category in categories %}
     <article>
         <h2>{{ category.name | upper }}</h2>
