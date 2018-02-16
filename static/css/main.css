@@ -1499,7 +1499,8 @@ form#searchformMain input#searchsubmit {
 }
 /* The Close Button */
 .closemodal,
-.closepromo {
+.closepromo,
+.closeSearch {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -1509,7 +1510,9 @@ form#searchformMain input#searchsubmit {
 .closemodal:hover,
 .closemodal:focus,
 .closepromo:hover,
-.closepromo:focus {
+.closepromo:focus
+.closeSearch:hover,
+.closeSearch:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -1536,6 +1539,37 @@ form#searchformMain input#searchsubmit {
   -ms-align-items: center;
   align-items: center;
   color: #FFF;
+}
+/*Footer styles*/
+#colophon {
+  display: none;
+}
+#mobileFooter {
+  display: block;
+}
+.mobileMenu {
+  border-top: 2px solid #4f4f4f;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.mobileMenu ul {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.mobileMenu ul li {
+  list-style: none;
+}
+.mobileMenu i {
+  font-size: 35px;
+  color: #4f4f4f;
 }
 
 /*==============MEDIA==================*/
@@ -1566,6 +1600,13 @@ form#searchformMain input#searchsubmit {
   .header-info i,
   .header-info a {
     font-size: 15px;
+  }
+  /*Footer styles*/
+  #colophon {
+    display: block;
+  }
+  #mobileFooter {
+    display: none;
   }
   /* SHARE BUTTONS */
   ul.share-buttons{

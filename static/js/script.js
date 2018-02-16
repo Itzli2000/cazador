@@ -17,7 +17,7 @@ var spanPromo = document.getElementsByClassName("closepromo")[0];
 
 // When the user clicks on the button, open the modal 
 btnPromo.onclick = function() {
-    modalPromo.style.display = "block";
+  modalPromo.style.display = "block";
 }
 
 
@@ -40,6 +40,28 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
+
+// Search form modal
+// Get the modal
+var searchModal = document.getElementById('searchMod');
+
+// Get the button that opens the modal
+var btnSearch = document.getElementById("searchBtn");
+
+// Get the <span> element that closes the modal
+var searchSpan = document.getElementsByClassName("closeSearch")[0];
+
+// When the user clicks on the button, open the modal 
+btnSearch.onclick = function(e) {
+  e.preventDefault();
+  searchModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+searchSpan.onclick = function() {
+  searchModal.style.display = "none";
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
@@ -47,5 +69,8 @@ window.onclick = function(event) {
   }
   else if (event.target == modalPromo) {
     modalPromo.style.display = "none";
+  }
+  else if (event.target == searchModal) {
+    searchModal.style.display = "none";
   }
 }

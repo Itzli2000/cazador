@@ -128,6 +128,23 @@
     {% block prefooter %}
     {% endblock prefooter %}
 
+    <div id="mobileFooter">
+        <div class="mobileFooter-Container">
+            <nav class="mobileMenu">
+                <ul>
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li><a href="" id="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </li>
+                    <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
     <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="wrap padding10 footerContent">
 
@@ -182,6 +199,24 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Search modal -->
+    <div id="searchMod" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeSearch">&times;</span>
+                <h2>Buscar</h2>
+            </div>
+            <div class="modal-body">
+               <form role="search" method="get" id="searchformMain" action="">
+                  <input type="text" value="" name="s" id="s" placeholder="BUSCADOR">
+                  <input type="submit" id="searchsubmit" value="" class="btn-search">
+              </form>
+          </div>
+      </div>
+  </div>
 
 </div><!-- #page -->
 
