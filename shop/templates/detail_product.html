@@ -38,8 +38,8 @@
         <div class="product-list">
           <h2>{{ product.name }}</h2>
           <p>$ {{ product.price|floatformat:-2 }}</p>
-          <div class="product-btn add-cart" data="{{ product.id }}>
-            <i class="fa fa-shopping-cart" aria-hidden="true"  data="{{ product.id }}"></i>
+          <div class="product-btn add-cart" data="{{ product.id }}">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <p>añadir al carrito</p>
           </div>
           <div class="infoContainer">
@@ -79,8 +79,8 @@
       </a>
       <div class="product-list related">
         <h2>{{ product.name }}</h2>
-        <div class="product-btn add-cart" data="{{ product.id }}>
-          <i class="fa fa-shopping-cart" aria-hidden="true"  data="{{ product.id }}"></i>
+        <div class="product-btn add-cart" data="{{ product.id }}">
+          <i class="fa fa-shopping-cart" aria-hidden="true""></i>
           <p>$ {{ product.price|floatformat:-2 }}</p>
         </div>
       </div>

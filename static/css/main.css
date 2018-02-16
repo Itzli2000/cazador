@@ -812,6 +812,7 @@ table td.price span {
   -ms-flex-direction: row;
   -o-flex-direction: row;
   flex-direction: row;
+  border: none;
 }
 .related h2 {
   color: #7fab4d;

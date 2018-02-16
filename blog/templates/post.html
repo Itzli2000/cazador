@@ -100,15 +100,12 @@
       <a href="{% url 'detail_product_one' product.category.id product.id %}">
         <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
       </a>
-      <p class="product-name-article">{{ product.name | upper }}</p>
-      <div class="box-shop">
-        <a href="" class="add-cart" data="{{ product.id }}">
-          <img src="{{ STATIC_URL}}img/carrito.png" alt="Carrito">
-        </a>
-
-        <a href="{{ product.get_absolute_url }}">
-          <img src="{{ STATIC_URL}}img/descripcion.png" alt="Descripcion">
-        </a>
+      <div class="product-list related">
+        <h2>{{ product.name }}</h2>
+        <div class="product-btn add-cart" data="{{ product.id }}">
+          <i class="fa fa-shopping-cart" aria-hidden="true""></i>
+          <p>$ {{ product.price|floatformat:-2 }}</p>
+        </div>
       </div>
     </div>
   </div>
