@@ -14,7 +14,7 @@
 {% endblock container-2 %}
 
 {% block container-fluid %}
-<img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="featured-image">
+<!-- <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="featured-image"> -->
 {% endblock container-fluid %}
 
 {% block content %}
@@ -37,7 +37,7 @@
       <h2>Autor</h2>
 
       <div class="bio">
-        <img src="{{ STATIC_URL}}img/img-circle.png" alt="Laura Mejía">
+        <i class="fa fa-user" aria-hidden="true"></i>
         <div class="bio-description">
           <h3>{{ post.author | safe }}</h3>
         </div>

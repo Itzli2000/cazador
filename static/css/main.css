@@ -906,7 +906,6 @@ hr {
   font-size: 1.1em;
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: #6495ed;
 }
 
 .related-posts li {
@@ -1014,11 +1013,16 @@ hr {
   padding-top: 1.6em;
 }
 
-.bio > img {
+.bio > i {
   border-right: 150px;
-  display: inline-block;
-  height: 85px;
-  width: 85px;
+  font-size: 45px;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bio-description {
