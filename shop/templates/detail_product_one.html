@@ -35,8 +35,11 @@
       <div class="col-md-6">
         <div class="product-list">
           <h2>{{ product.name }}</h2>
-          <i class="fa fa-shopping-cart  add-cart" aria-hidden="true"  data="{{ product.id }}"></i>
           <p>$ {{ product.price|floatformat:-2 }}</p>
+          <div class="product-btn add-cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"  data="{{ product.id }}"></i>
+            <p>añadir al carrito</p>
+          </div>
         </div>
       </div>
     </div>
@@ -71,37 +74,29 @@
 </div>
 
 <div class="row">
-  {% for product in related_products %}
+  {% for post in related_posts %}
   <div class="col-md-4">
     <div class="shop-box-container">
-      <a href="{% url 'detail_product_one' product.category.id product.id %}">
-        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
+      <a href="{{ post.get_absolute_url }}">
+        <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
       </a>
-      <div class="product-list related">
-        <h2>{{ product.name }}</h2>
-        <i class="fa fa-shopping-cart  add-cart" aria-hidden="true"  data="{{ product.id }}"></i>
-        <p>$ {{ product.price|floatformat:-2 }}</p>
-      </div>
+      <p class="product-name-article"><a href="{{ post.get_absolute_url }}">
+        {{ post.title | upper }}
+      </a></p>
     </div>
   </div>
+  {% endfor %}
 </div>
-{% endfor %}
-
-</div>
-
-
 <div class="row">
-
   <h2 class="shop-title">Restaurante</h2>
-
   {% for menu in menues %}
   <div class="col-md-4">
-    <a href="{% url  'detail_menu' menu.category.id menu.id %}">
-      <div class="shop-box-container">
+    <div class="shop-box-container">
+      <a href="{% url  'detail_menu' menu.category.id menu.id %}">
         <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
         <p class="product-name-article">{{ menu.name | upper }}</p>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
   {% endfor %}
 

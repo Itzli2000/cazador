@@ -13,25 +13,24 @@
 
   <h2 class="shop-title">Carnes Exóticas</h2>
 
-{% for product in products %}
-<div class="col-md-4">
+  {% for product in products %}
+  <div class="col-md-4">
     <div class="shop-box-container">
       <a href="{% url 'detail_product_one' product.category.id  product.id %}">
         <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="img-thumbnail">
       </a>
-      <p class="product-name-article">{{ product.name | upper }}</p>
       <div class="box-shop">
-        <a href="" class="add-cart" data="{{ product.id }}">
-          <img src="{{ STATIC_URL}}img/carrito.png" alt="Carrito">
-        </a>
-
         <a href="{{ product.get_absolute_url }}">
-          <img src="{{ STATIC_URL}}img/descripcion.png" alt="Descripcion">
+          <p class="product-name-article">{{ product.name | upper }}</p>
         </a>
+        <a href="" class="add-cart" data="{{ product.id }}">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <span>&nbsp;&nbsp;$ {{ product.price|floatformat:-2 }}</span>
+        </a>
+      </div>
     </div>
-    </div>
-</div>
-{% endfor %}
+  </div>
+  {% endfor %}
 
 </div>
 
@@ -39,16 +38,16 @@
 
   <h2 class="shop-title">Restaurante</h2>
 
-{% for menu in menues %}
-<div class="col-md-4">
-  <a href="{% url  'detail_menu' menu.category.id menu.id %}">
-    <div class="shop-box-container">
-      <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
-      <p class="product-name-article">{{ menu.name | upper }}</p>
-    </div>
-  </a>
-</div>
-{% endfor %}
+  {% for menu in menues %}
+  <div class="col-md-4">
+    <a href="{% url  'detail_menu' menu.category.id menu.id %}">
+      <div class="shop-box-container">
+        <img src="{{ MEDIA_URL }}{{ menu.image }}" alt="" class="img-thumbnail">
+        <p class="product-name-article">{{ menu.name | upper }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
 
 </div>
 
@@ -56,23 +55,23 @@
 
   <h2 class="shop-title">Blog</h2>
 
-{% for post in posts %}
-<div class="col-md-4">
+  {% for post in posts %}
+  <div class="col-md-4">
     <div class="shop-box-container">
       <a href="{% url 'view_post' post.slug %}">
         <img src="{{ MEDIA_URL }}{{ post.image }}" alt="" class="img-thumbnail">
       </a>
       <a href="{% url 'view_post' post.slug %}" class="product-link-article">{{ post.title | upper }}</a>
     </div>
-</div>
-{% endfor %}
+  </div>
+  {% endfor %}
 
 </div>
 
 <div class="row">
 
-  
-    <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
+
+  <a href="{% url 'blog_home' %}" class="see-more">Ver más</a>
 
 </div>
 
@@ -81,40 +80,4 @@
 
 
 {% block js %}
-<script>
-  $('.add-cart').click(function(event) {
-
-    var handle201 = function(data, textStatus, jqXHR) {
-      alert('Se ha agregado al carrito'); // success codes have the success signature
-      // test it if you are in doubt:
-      console.log(data);
-      console.log(textStatus);
-      console.log(jqXHR);
-    };
-
-    var handleError= function(jqXHR, textStatus, errorThrown) {
-      alert('Hubo un error al agregar al carrito'); // failing codes have the error signature
-    };
-    
-    event.preventDefault();
-    var product_id = $(this).attr('data');
-    
-    $.ajax({
-      url: '{% url "cart:cart_add" %}',
-      type: "POST",
-      data: {
-          "product_id": product_id,
-          csrfmiddlewaretoken: '{{ csrf_token }}',
-          'quantity': '1',
-          'update': 'False'
-      },
-      statusCode: {
-        201: handle201,
-        400: handleError,
-        500: handleError
-      }
-    });
-
-  });
-</script>
 {% endblock js %}

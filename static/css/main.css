@@ -217,7 +217,23 @@ a:hover {
   height: 120px;
   width: 100%;
 }
-
+.product-btn {
+  cursor: pointer;
+  border: 1px solid #7fab4d;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-btn i {
+  color: #888e92;
+}
+.product-btn p {
+  color: #7fab4d;
+  margin: 0;
+  margin-left: 10px;
+}
 .product-name-article {
   color: #7fab4d;
   font-size: 25px;
@@ -786,8 +802,28 @@ table td.price span {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
 }
-
+.related .add-cart {
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+.related h2 {
+  color: #7fab4d;
+  text-transform: uppercase;
+  display: flex !important;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.related span {
+  display: inline;
+  color: #526e7a;
+}
 .product-list h2 {
   display: inline-block;
   width: 45%;
@@ -1574,6 +1610,16 @@ form#searchformMain input#searchsubmit {
 .mobileMenu i {
   font-size: 35px;
   color: #4f4f4f;
+}
+/*Home styles*/
+.add-cart {
+  color: #7fab4d;
+}
+.add-cart p {
+  text-transform: uppercase;
+}
+.add-cart i {
+  color: #878f94;
 }
 
 /*==============MEDIA==================*/

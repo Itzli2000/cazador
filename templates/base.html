@@ -210,13 +210,13 @@
                 <h2>Buscar</h2>
             </div>
             <div class="modal-body">
-               <form role="search" method="get" id="searchformMain" action="">
-                  <input type="text" value="" name="s" id="s" placeholder="BUSCADOR">
-                  <input type="submit" id="searchsubmit" value="" class="btn-search">
-              </form>
-          </div>
+             <form role="search" method="get" id="searchformMain" action="">
+              <input type="text" value="" name="s" id="s" placeholder="BUSCADOR">
+              <input type="submit" id="searchsubmit" value="" class="btn-search">
+          </form>
       </div>
   </div>
+</div>
 
 </div><!-- #page -->
 
@@ -236,6 +236,43 @@ $(document).ready(function() {
         $.cookie('pop', '1');
     }
     // $.removeCookie('pop');
+});
+</script>
+
+<script>
+  $('.add-cart').click(function(event) {
+
+    var handle201 = function(data, textStatus, jqXHR) {
+      alert('Se ha agregado al carrito'); // success codes have the success signature
+      // test it if you are in doubt:
+      console.log(data);
+      console.log(textStatus);
+      console.log(jqXHR);
+  };
+
+  var handleError= function(jqXHR, textStatus, errorThrown) {
+      alert('Hubo un error al agregar al carrito'); // failing codes have the error signature
+  };
+  
+  event.preventDefault();
+  var product_id = $(this).attr('data');
+  
+  $.ajax({
+      url: '{% url "cart:cart_add" %}',
+      type: "POST",
+      data: {
+        "product_id": product_id,
+        csrfmiddlewaretoken: '{{ csrf_token }}',
+        'quantity': '1',
+        'update': 'False'
+    },
+    statusCode: {
+        201: handle201,
+        400: handleError,
+        500: handleError
+    }
+});
+
 });
 </script>
 {% block js %}            
