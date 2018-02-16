@@ -15,7 +15,7 @@
 <h2>Pagar</h2>
 
 <div class="col-md-4">
-    <div class="order-info orders">
+    <div class="order-info orders create-col">
     <h3>Resumen de tu orden</h3>
     <p>Subtotal: $ {{ cart.get_total_price }}</p>
     <p>Envío: $ {{ shipping_price }}</p>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="col-md-4">
-  <div class="shopping-address orders">
+  <div class="shopping-address orders create-col">
     <h3>Tu información de envío</h3>
     <ul>
       <li><span>Línea 1:</span> {{ shipping_address.line1 }}</li>
@@ -36,7 +36,7 @@
     </ul>
   </div>
 
-  <div class="billing-address orders">
+  <div class="billing-address orders create-col">
     <h3>Tu información de facturación</h3>
     <ul>
       <li><span>Línea 1:</span> {{ billing_address.line1 }}</li>
@@ -50,12 +50,12 @@
 </div>
 
 <div class="col-md-4">
-  <div class="paypal-info orders">
+  <div class="paypal-info orders create-col">
     <h3>Paga con PayPal</h3>
     {{ form.render }}
   </div>
 
-  <div class="oxxo-info orders">
+  <div class="oxxo-info orders create-col">
     <form action="" method="post">
       {% csrf_token %}
       <input type="hidden" name="payment_type" value="oxxo">

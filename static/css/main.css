@@ -1622,6 +1622,10 @@ form#searchformMain input#searchsubmit {
 .add-cart i {
   color: #878f94;
 }
+/*Extra styles for create order*/
+ .create-col {
+  min-height: 250px;
+ }
 
 /*==============MEDIA==================*/
 
