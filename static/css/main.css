@@ -236,7 +236,7 @@ a:hover {
 }
 .product-name-article {
   color: #7fab4d;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
   width: 100%;
   padding-top: 10px;
@@ -630,7 +630,7 @@ table td.price span {
 }
 
 .orders {
-  background-color: rgb(237, 239, 240);
+  background-color: rgba(135,143,148,0.25);
   margin-top: 10px;
   padding: 10px;
 }
@@ -1400,7 +1400,7 @@ form  p {
 
 .order-info {
   width: 100%;
-  background-color: rgb(237, 239, 240);
+  background-color: rgba(135,143,148,0.25);
   overflow-x: auto;
 }
 
@@ -1501,11 +1501,14 @@ form#searchformMain input#searchsubmit {
 }
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #FFF;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+.PromoModal {
+  background-color: rgba(255,255,255,0.2);
 }
 .modal-content img {
   width: 100%;
@@ -1589,7 +1592,7 @@ form#searchformMain input#searchsubmit {
   display: block;
 }
 .mobileMenu {
-  border-top: 2px solid #4f4f4f;
+  border-top: 1px solid #7fab4d;
   padding-top: 10px;
   display: flex;
   flex-direction: row;
@@ -1610,7 +1613,7 @@ form#searchformMain input#searchsubmit {
 }
 .mobileMenu i {
   font-size: 35px;
-  color: #4f4f4f;
+  color: #878F94;
 }
 /*Home styles*/
 .add-cart {
@@ -1621,6 +1624,7 @@ form#searchformMain input#searchsubmit {
 }
 .add-cart i {
   color: #878f94;
+  font-size: 22px;
 }
 /*Extra styles for create order*/
  .create-col {

@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block title%}El Gran Cazador México - Inicio{% endblock %}
-
 {% block header %}
 
-<img src="{{ STATIC_URL}}img/main.jpg" alt="Forest" class="img-responsive large-image">
+<img src="{{ STATIC_URL}}img/exotic.jpg" alt="Forest" class="img-responsive large-image">
+<div class="bck-overlay"></div>
+<div class="info-text">
+  <p class="litle-title">Conoce</p>
+  <p class="large-title">Nuestras especialidades</p>
+  <a href="{% url 'menu' %}" class="btn btn-title">click</a>
+</div>
 
 {% endblock %}
 
