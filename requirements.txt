@@ -1,6 +1,6 @@
 appdirs==1.4.3
 conekta==2.3.2
-Django==1.10.5
+Django==1.11.28
 django-annoying==0.10.3
 django-paypal==0.4.1
 django-tinymce==2.6.0
