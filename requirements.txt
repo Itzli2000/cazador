@@ -7,7 +7,7 @@ django-tinymce==2.6.0
 flake8==3.2.1
 gunicorn==19.6.0
 html5lib==1.0b10
-httplib2==0.10.3
+httplib2==0.18.0
 mccabe==0.5.3
 nose==1.3.7
 olefile==0.44
